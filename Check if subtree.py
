@@ -1,0 +1,28 @@
+class Solution:
+    
+    # Check if two trees are identical
+    def isSame(self, T, S):
+        if not T and not S:
+            return True
+        if not T or not S:
+            return False
+        
+        return (T.data == S.data and
+                self.isSame(T.left, S.left) and
+                self.isSame(T.right, S.right))
+    
+    # Main function
+    def isSubTree(self, T, S):
+        # Base cases
+        if not S:
+            return True
+        if not T:
+            return False
+        
+        # Check at current node
+        if self.isSame(T, S):
+            return True
+        
+        # Check in left or right subtree
+        return (self.isSubTree(T.left, S) or
+                self.isSubTree(T.right, S))
