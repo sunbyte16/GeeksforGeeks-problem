@@ -1,0 +1,15 @@
+class Solution:
+    def countSubarray(self, arr, l, r):
+        n = len(arr)
+        def sumlessthanequalto(x):
+            start = 0
+            sum_ = 0
+            count = 0
+            for end in range(n):
+                sum_ += arr[end]
+                while sum_ > x and start <= end:
+                    sum_ -= arr[start]
+                    start += 1
+                count += end - start + 1
+            return count
+        return sumlessthanequalto(r) - sumlessthanequalto(l - 1)
