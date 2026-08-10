@@ -1,0 +1,12 @@
+class Solution:
+    def maxTask(self, h: list[int], l: list[int]) -> int:
+        # code here
+        n=len(h)
+        past,prev=0,0
+        for i in range(n):
+            prev,past=max(l[i]+prev,h[i]+past),prev
+        return prev
+
+
+0
+
