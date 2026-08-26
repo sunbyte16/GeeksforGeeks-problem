@@ -10,4 +10,4 @@ class Solution:
             sheights = sorted(filter(None, heights), reverse=True)
             for j in range(len(sheights)):
                 max_area = max(max_area, sheights[j] * (j + 1))
-        return max_area
+        return max_area 
